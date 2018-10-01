@@ -28,12 +28,11 @@ protocol TelephoneCodeDelegate : class {
     /**
      Этот параметр отвечает за колличество цифр после кода страны.Если телефон имеет меньше цифр чем имеет этот параметр, то после запроса номера телефона будет ошибка текстового поля.
      default = 9 - Ukraine phone standard
+     
+     Если вы хотите использовать валидацию, к примеру как https://github.com/luximetr/AnyFormatKit то нужно указать колличество символов с пробелами, прочерками и скобками для правельного отоббражения и получения результата
      */
     var telephoneMaxLenght = 9
     var telephone = ""
-    
-    var isValidate = false
-    
     
     weak var delegate : TelephoneCodeDelegate?
     
@@ -212,11 +211,10 @@ extension TelephoneCode : UITextFieldDelegate {
             if let text = textField.text as NSString? {
                 let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
                 self.getPhone(text: txtAfterUpdate)
-//                return TelephoneNumberValidator.formattedTextField(textField, shouldChangeCharactersIn: range, replacementString: string)
             }
             return true
         } else {
-            print("The international format should have no more than 16 characters without the plus sign")
+            print("Error max lenght symbol")
             return false
         }
     }
