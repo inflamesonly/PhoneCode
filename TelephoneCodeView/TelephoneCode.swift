@@ -34,6 +34,9 @@ protocol TelephoneCodeDelegate : class {
     var telephoneMaxLenght = 9
     var telephone = ""
     
+    var customMask = TLCustomMask()
+    
+    
     weak var delegate : TelephoneCodeDelegate?
     
     @IBInspectable var delimiterViewColor: UIColor = UIColor.black {
@@ -106,7 +109,10 @@ protocol TelephoneCodeDelegate : class {
     
     override open func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.telephoneMaxLenght = self.codeText.count + self.telephoneMaxLenght
+        customMask.formattingPattern = "($$) $$$-$$-$$"
+        
+        self.telephoneMaxLenght = self.codeText.count + (customMask.finalText?.count)!
+//        self.telephoneMaxLenght = self.codeText.count + self.telephoneMaxLenght
         self.setValues()
         self.addSubviewes()
         self.setupAutoLayoutBackgroundView()
@@ -200,23 +206,10 @@ extension TelephoneCode : CodePickerDelegate {
 // MARK:- UITextFieldDelegate
 extension TelephoneCode : UITextFieldDelegate {
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        if !allowedCharacters.isSuperset(of: characterSet) {
-            return false
-        }
-        
-        if range.location + (self.codeText.count) < self.telephoneMaxLenght {
-            if let text = textField.text as NSString? {
-                let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
-                self.getPhone(text: txtAfterUpdate)
-            }
-            return true
-        } else {
-            print("Error max lenght symbol")
-            return false
-        }
+    
+        self.phoneTextField.text = customMask.formatStringWithRange(range: range, string: string)
+        self.getPhone(text: self.phoneTextField.text!)
+        return false
     }
     
     func checkIsNumberInto(textField : UITextField) -> Bool {

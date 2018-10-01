@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		105D58002162996200C19E42 /* TLCustomMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105D57FF2162996100C19E42 /* TLCustomMask.swift */; };
 		1066B9D2215BC758007EAB13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066B9D1215BC758007EAB13 /* AppDelegate.swift */; };
 		1066B9D4215BC758007EAB13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066B9D3215BC758007EAB13 /* ViewController.swift */; };
 		1066B9D7215BC758007EAB13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1066B9D5215BC758007EAB13 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		105D57FF2162996100C19E42 /* TLCustomMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLCustomMask.swift; sourceTree = "<group>"; };
 		1066B9CE215BC758007EAB13 /* TelephoneCodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelephoneCodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1066B9D1215BC758007EAB13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1066B9D3215BC758007EAB13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		1066B9D0215BC758007EAB13 /* TelephoneCodeView */ = {
 			isa = PBXGroup;
 			children = (
+				105D57FF2162996100C19E42 /* TLCustomMask.swift */,
 				10CA8106215FA9240048A8C9 /* Ext.swift */,
 				10CA810821626E190048A8C9 /* Model */,
 				10CA7E03215E5C3A0048A8C9 /* Resources */,
@@ -188,6 +191,7 @@
 				1066B9D2215BC758007EAB13 /* AppDelegate.swift in Sources */,
 				10CA8107215FA9240048A8C9 /* Ext.swift in Sources */,
 				10CA7E00215E44F80048A8C9 /* LocalCountriesArray.swift in Sources */,
+				105D58002162996200C19E42 /* TLCustomMask.swift in Sources */,
 				1066B9E4215BC77E007EAB13 /* TelephoneCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
